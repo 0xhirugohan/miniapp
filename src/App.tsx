@@ -1,10 +1,13 @@
 import { APITester } from "./APITester";
+import { getGitCommitHash } from "./getGitCommitHash.ts" with { type: "macro" };
 import "./index.css";
 
 import logo from "./logo.svg";
 import reactLogo from "./react.svg";
 
 export function App() {
+  const gitCommitHash = getGitCommitHash();
+
   return (
     <div className="app">
       <div className="logo-container">
@@ -17,6 +20,9 @@ export function App() {
         Edit <code>src/App.tsx</code> and save to test HMR
       </p>
       <APITester />
+      <p>
+      	Version {gitCommitHash}
+      </p>
     </div>
   );
 }
