@@ -1,5 +1,5 @@
 const miniapp = {
-  version: "0.0.1",
+  version: "1",
   imageUrl: "https://yoink.party/framesV2/opengraph-image",
   button: {
     title: "Launch",
