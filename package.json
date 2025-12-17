@@ -9,6 +9,7 @@
     "start": "NODE_ENV=production bun src/index.ts"
   },
   "dependencies": {
+    "@farcaster/miniapp-sdk": "^0.2.1",
     "react": "^19",
     "react-dom": "^19"
   },
