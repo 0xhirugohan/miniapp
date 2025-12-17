@@ -35,9 +35,11 @@ export function App() {
         Edit <code>src/App.tsx</code> and save to test HMR
       </p>
       <APITester />
-      <p>
-      	Version {gitCommitHash}
-      </p>
+      { gitCommitHash &&
+        <p>
+          Version {gitCommitHash}
+        </p>
+      }
     </div>
   );
 }
