@@ -13,6 +13,13 @@ const server = serve({
       },
     },
 
+    "/logo.png": {
+      async GET(req) {
+        const imageFile = Bun.file("./src/logo_image.png");
+        return new Response(imageFile);
+      },
+    },
+
     "/api/hello": {
       async GET(req) {
         return Response.json({

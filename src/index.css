@@ -1,9 +1,9 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #F5F0EC;
 }
 body {
   margin: 0;
@@ -82,7 +82,7 @@ h1 {
   line-height: 1.1;
 }
 code {
-  background-color: #1a1a1a;
+  background-color: #dbdbdb;
   padding: 0.2em 0.4em;
   border-radius: 0.3em;
   font-family: monospace;

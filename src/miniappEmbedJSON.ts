@@ -7,7 +7,7 @@ const miniapp = {
       type: "launch_miniapp",
       url: "https://miniapp.fbrns.co",
       name:"Hay NFT",
-      splashImageUrl: "https://yoink.party/logo.png",
+      splashImageUrl: "https://miniapp.fbrns.co/logo.png",
       splashBackgroundColor:"#f5f0ec"
     }
   }
