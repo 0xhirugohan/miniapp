@@ -6,6 +6,13 @@ const server = serve({
     // Serve index.html for all unmatched routes.
     "/*": index,
 
+    "/framesV2/opengraph-image": {
+      async GET(req) {
+        const imageFile = Bun.file("./src/og_image.png");
+        return new Response(imageFile);
+      },
+    },
+
     "/api/hello": {
       async GET(req) {
         return Response.json({

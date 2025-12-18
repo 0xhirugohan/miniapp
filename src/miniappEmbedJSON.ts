@@ -1,8 +1,8 @@
 const miniapp = {
   version: "1",
-  imageUrl: "https://yoink.party/framesV2/opengraph-image",
+  imageUrl: "https://miniapp.fbrns.co/framesV2/opengraph-image",
   button: {
-    title: "Launch",
+    title: "Hay!",
     action: {
       type: "launch_miniapp",
       url: "https://miniapp.fbrns.co",
