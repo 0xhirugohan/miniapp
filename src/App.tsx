@@ -32,14 +32,18 @@ export function App() {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <div className="app">
-          <div className="logo-container">
-            <img src={logo} alt="Bun Logo" className="logo bun-logo" />
-          </div>
-
-          <h1>
-	    <span>Hay!</span>
-	  </h1>
+        <div className="app flex flex-col gap-y-8">
+	  <div>
+            <img
+	      src={logo}
+	      alt="Bun Logo"
+	      className="w-20 mx-auto"
+	    />
+            <h1 className="text-xl font-semibold">
+	      <span>Hay!</span>
+	    </h1>
+	  </div>
+	  
 	  <WagmiTester />
           <APITester />
           { gitCommitHash &&

@@ -21,16 +21,53 @@ export function WagmiTester() {
     )
   }
 
+  if (connectors.length > 1) {
+    return (
+      <div className="dropdown dropdown-bottom dropdown-center">
+        <div
+	  tabIndex={0}
+	  role="button"
+	  className="btn btn-neutral m-1"
+	>
+	  Connect
+	</div>
+	<ul
+	  tabIndex={-1}
+	  className="dropdown-content menu w-52 z-1 p-2 rounded-box bg-black shadow-sm flex flex-col gap-y-2"
+	>
+	  {connectors.map(connector => 
+            <li>
+	      <button
+	        className="btn btn-gray-600"
+                onClick={() => connector.connect()}
+              >
+	        <img
+	          className="w-4 rounded-sm"
+	          src={connector.icon}
+	          alt="image icon"
+	        />
+                {connector.name}
+              </button>
+	    </li>
+          )}
+	</ul>
+      </div>
+    )
+  }
+
   return (
     <div>
-      {connectors.map(connector => 
-        <button
-          type="button"
-          onClick={() => connector.connect()}
-        >
-          Connect {connector.name}
-        </button>
-      )}
+      <button
+	className="btn btn-neutral"
+        onClick={() => connectors[0].connect()}
+      >
+        <img
+	  className="w-4 rounded-sm"
+	  src={connectors[0].icon}
+	  alt="image icon"
+	/>
+        Connect {connectors[0].name}
+      </button>
     </div>
   );
 }
