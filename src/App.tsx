@@ -40,7 +40,7 @@ export function App() {
           <h1>
 	    <span>Hay!</span>
 	  </h1>
-          <WagmiTester />
+	  <WagmiTester />
           <APITester />
           { gitCommitHash &&
             <p>

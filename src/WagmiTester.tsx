@@ -22,11 +22,15 @@ export function WagmiTester() {
   }
 
   return (
-    <button
-      type="button"
-      onClick={connectWallet}
-    >
-      Connect
-    </button>
+    <div>
+      {connectors.map(connector => 
+        <button
+          type="button"
+          onClick={() => connector.connect()}
+        >
+          Connect {connector.name}
+        </button>
+      )}
+    </div>
   );
 }
