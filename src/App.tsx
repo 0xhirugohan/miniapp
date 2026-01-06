@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { sdk } from "@farcaster/miniapp-sdk";
 import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+import { NotMiniApp } from "./components/NotMiniApp";
 import { APITester } from "./APITester";
 import { WagmiTester} from "./WagmiTester";
 import { config } from "./config";
@@ -15,11 +16,16 @@ import reactLogo from "./react.svg";
 const queryClient = new QueryClient();
 
 export function App() {
+  const [isMiniApp, setIsMiniApp] = useState(false);
   const gitCommitHash = getGitCommitHash();
 
   const initiateFarcasterSDK = async () => {
     try {
-      await sdk.actions.ready();
+      const isRunningOnMiniApp = await sdk.isInMiniApp();
+      if (isRunningOnMiniApp) {
+        setIsMiniApp(true);
+        await sdk.actions.ready();
+      }
     } catch (err) {
       console.error("Fail to initiate Farcaster SDK");
     }
@@ -44,6 +50,10 @@ export function App() {
   useEffect(() => {
     initiateFarcasterSDK();
   }, []);
+
+  if (!isMiniApp && process.env.NODE_ENV == "production") return (
+    <NotMiniApp />
+  );
 
   return (
     <WagmiProvider config={config}>
