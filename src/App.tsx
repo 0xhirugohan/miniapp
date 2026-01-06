@@ -25,6 +25,22 @@ export function App() {
     }
   }
 
+  const composeCast = async () => {
+    const result = await sdk.actions.composeCast({
+      text: "Hay World!",
+    });
+    
+    if (result?.cast) {
+      console.log("Successfully Casted!");
+    } else {
+      console.log("Cast failed");
+    }
+  };
+
+  const onCastClick = () => {
+    composeCast();
+  };
+
   useEffect(() => {
     initiateFarcasterSDK();
   }, []);
@@ -39,9 +55,17 @@ export function App() {
 	      alt="Bun Logo"
 	      className="w-20 mx-auto"
 	    />
-            <h1 className="text-xl font-semibold">
-	      <span>Hay!</span>
-	    </h1>
+	    <div className="flex flex-col gap-y-8">
+              <h1 className="text-xl font-semibold">
+	        <span>Hay!</span>
+	      </h1>
+	      <button
+	        onClick={onCastClick}
+	        className="btn btn-neutral"
+	      >
+	        Cast
+	      </button>
+	    </div>
 	  </div>
 	  
 	  <WagmiTester />
