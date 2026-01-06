@@ -31,6 +31,16 @@ export function App() {
     }
   }
 
+  const signManifest = async () => {
+    try {
+      const result = await sdk.experimental.signManifest({
+        domain: 'miniapp.fbrns.co',
+      });
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   const composeCast = async () => {
     const result = await sdk.actions.composeCast({
       text: "Hay World!",
@@ -69,6 +79,12 @@ export function App() {
               <h1 className="text-xl font-semibold">
 	        <span>Hay!</span>
 	      </h1>
+	      <button
+	        onClick={() => signManifest()}
+	        className="btn btn-neutral"
+	      >
+	        Sign
+	      </button>
 	      <button
 	        onClick={onCastClick}
 	        className="btn btn-neutral"
