@@ -14,6 +14,14 @@ export function SignMessage() {
     }
   };
 
+  const wagmiSignMessage = async () => {
+    try {
+      await signMessage.mutate({ message: "hay world!" });
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   return (
     <div className="flex gap-x-4">
       <button
@@ -23,7 +31,7 @@ export function SignMessage() {
         Sign with Farcaster
       </button>
       <button
-        onClick={() => signMessage.mutate({ message: "hay world!" })}
+        onClick={wagmiSignMessage}
 	className="btn btn-neutral"
       >
         Sign with Wagmi
