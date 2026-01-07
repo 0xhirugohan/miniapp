@@ -4,6 +4,7 @@ import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { NotMiniApp } from "./components/NotMiniApp";
+import { SignMessage } from "./components/SignMessage";
 import { APITester } from "./APITester";
 import { WagmiTester} from "./WagmiTester";
 import { config } from "./config";
@@ -30,16 +31,6 @@ export function App() {
       console.error("Fail to initiate Farcaster SDK");
     }
   }
-
-  const signManifest = async () => {
-    try {
-      const result = await sdk.experimental.signManifest({
-        domain: 'miniapp.fbrns.co',
-      });
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
 
   const composeCast = async () => {
     const result = await sdk.actions.composeCast({
@@ -79,12 +70,7 @@ export function App() {
               <h1 className="text-xl font-semibold">
 	        <span>Hay!</span>
 	      </h1>
-	      <button
-	        onClick={() => signManifest()}
-	        className="btn btn-neutral"
-	      >
-	        Sign
-	      </button>
+	      <SignMessage />
 	      <button
 	        onClick={onCastClick}
 	        className="btn btn-neutral"
