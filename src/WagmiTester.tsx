@@ -1,16 +1,9 @@
 import { useAccount, useConnect } from "wagmi";
+import { farcasterMiniApp as miniAppConnector } from "@farcaster/miniapp-wagmi-connector";
 
 export function WagmiTester() {
   const { isConnected, address } = useAccount();
-  const { connect, connectors } = useConnect();
-
-  const connectWallet = () => {
-    try {
-      connect({ connector: connectors[0] });
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  const { connect, connectors, mutate } = useConnect();
 
   if (isConnected) {
     return (
@@ -59,7 +52,7 @@ export function WagmiTester() {
     <div>
       <button
 	className="btn btn-neutral"
-        onClick={() => connectors[0].connect()}
+        onClick={() => mutate({ connector: miniAppConnector() })}
       >
         <img
 	  className="w-4 rounded-sm"
